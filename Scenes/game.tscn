@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cufbeecr4ph87"]
+
+[ext_resource type="Script" path="res://Scripts/GameMain.gd" id="1_1uyua"]
+[ext_resource type="Script" path="res://Scripts/World.gd" id="2_iukui"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_1pgpm"]
+[ext_resource type="PackedScene" uid="uid://cq3auvo8xqiyy" path="res://Scenes/unit.tscn" id="3_k34l3"]
+[ext_resource type="Script" path="res://Scenes/Pathfinding.gd" id="4_xjvpp"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1uyua")
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("2_iukui")
+showDebug = true
+
+[node name="Debug" type="Node2D" parent="World"]
+
+[node name="Units" type="Node2D" parent="World"]
+
+[node name="Unit" parent="World/Units" instance=ExtResource("3_k34l3")]
+
+[node name="Pathfinding" type="Node" parent="World"]
+script = ExtResource("4_xjvpp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_1pgpm")
